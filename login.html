@@ -6,6 +6,7 @@
 <head>
     <title>Login</title>
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
     <link rel="stylesheet" href="css/login.css"/>
 </head>
 
@@ -13,9 +14,9 @@
     <div class="box">
         <div class="title">Ducking Spice</div>
         <hr/>
-        <form>
+        <form onsubmit="validate(this);">
             <div class="description">
-                Name <input type="text" name="name" placeholder="Lastname, Firstname"/>
+                Name: <input type="text" name="name" placeholder="Lastname, Firstname" oninput="checkNull(this);" onchange="checkName(this);"/>
             </div>
             </br/>
             <div class="description">
