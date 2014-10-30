@@ -1,0 +1,50 @@
+body {
+    background-color: grey;
+}
+
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    margin: -8% 0 0 -10%;
+    opacity: 0.9;
+    
+    /* Chrome, Safari, Opera */
+    -webkit-animation: boxShadow 5s infinite; 
+    /* Default */
+    animation: boxShadow 5s infinite;
+
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes boxShadow {
+    0% {box-shadow: -10px -5px 15px #333433;}
+    25% {box-shadow: 10px -5px 15px #333433;}
+    50% {box-shadow: 10px 5px 15px #333433;}
+    75% {box-shadow: -10px 5px 15px #333433;}
+    100% {box-shadow: -10px -5px 15px #333433;}
+}
+
+/* Standard syntax */
+@keyframes boxShadow {
+    0% {box-shadow: -10px -5px 15px #333433;}
+    25% {box-shadow: 10px -5px 15px #333433;}
+    50% {box-shadow: 10px 5px 15px #333433;}
+    75% {box-shadow: -10px 5px 15px #333433;}
+    100% {box-shadow: -10px -5px 15px #333433;}
+}
+
+.title {
+    text-align: center;
+    font-family: Helvetica;
+}
+
+form {
+    text-align: right;
+    font-family: Helvetica;
+}
+
+input.submit-btn {
+    
+}
