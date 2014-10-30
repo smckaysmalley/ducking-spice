@@ -1,9 +1,24 @@
+function findUser(person)
+{
+    var name = person[0].value.split(', ');
+    
+    var user = 
+    {
+        firstname : name[1],
+        lastname  : name[0],
+        password  : person[1].value
+    };
+    
+    console.log(user.firstname+' '+user.lastname+' '+user.password);
+}
+
 function validate(form)
 {
+    console.log("yep");
     if (validName(form[0].value) && checkNull(form[1].value))
     {
-        alert("VALID");
-        //and do valid stuff here
+        //and do valid stuff here!
+        findUser(form);   
     }
 }
 

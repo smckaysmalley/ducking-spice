@@ -14,9 +14,9 @@ body {
     background-position: 50% 50%;
     
     /* Chrome, Safari, Opera */
-    -webkit-animation: boxShadow 20s infinite; 
+    -webkit-animation: boxShadow 5s infinite; 
     /* Default */
-    animation: boxShadow 20s infinite;
+    animation: boxShadow s infinite;
 
 }
 
