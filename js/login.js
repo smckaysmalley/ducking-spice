@@ -1,17 +1,29 @@
 function validate(form)
 {
-    console.log(form[0].value+' '+ form[1].value);
+    if (validName(form[0].value) && checkNull(form[1].value))
+    {
+        alert("VALID");
+        //and do valid stuff here
+    }
+}
+
+function validName(name)
+{
+    var pattern = /\w,\s\w/;
+    return (pattern.test(name));
+    
 }
 
 function checkName(name)
 {
-    var pattern = /\w,\s\w/;
-    if (pattern.test(name.value))
+    if (validName(name.value))
         $(name).css('background-color', 'DarkSeaGreen');
     else if (name.value === '')
         $(name).css('background-color', 'white');
     else
         $(name).css('background-color', 'LightCoral');
+        
+    return false;
 }
 
 function checkNull(input)
