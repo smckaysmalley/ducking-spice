@@ -1,6 +1,6 @@
 function validate(form)
 {
-    
+    console.log(form[0].value+' '+ form[1].value);
 }
 
 function checkName(name)
