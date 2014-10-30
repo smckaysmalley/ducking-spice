@@ -9,8 +9,8 @@ body {
     border-radius: 10px;
     margin: -8% 0 0 -10%;
     padding: 5px;
-    background-image: url('../img/box_background.jpg');
-    background-size: contain;
+    background-image: url('../img/input_background.jpg');
+    background-size: cover;
     background-position: 50% 50%;
     
     /* Chrome, Safari, Opera */
@@ -45,14 +45,11 @@ body {
 }
 
 form {
-    text-align: right;
-}
-
-input.submit-btn {
-    
+    text-align: center;
 }
 
 .description {
+    text-align: right;
     font-size: 9pt;
     font-family: Helvetica;
     color: white;
