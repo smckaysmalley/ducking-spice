@@ -6,7 +6,8 @@ function findUser(person)
     {
         firstname : name[1],
         lastname  : name[0],
-        password  : person[1].value
+        password  : person[1].value,
+        birthday  : "june"
     };
     
     console.log(user.firstname+' '+user.lastname+' '+user.password);
