@@ -5,4 +5,4 @@ ducking-spice
 
 ##Authors
 -McKay Smalley
-	-Cheif Chaos Officer, President
+  -Cheif Chaos Officer, President
