@@ -31,11 +31,14 @@ class SessionController extends \BaseController {
 	 */
 	public function store()
 	{
-		//$name = Input::get('name');
-		DD('check route');
-		if($name != 'blad') return View::make('session.create')->with('error','You suck!');
-		else return View::make('session.create')->with('msg','You dont suck!');
-	}
+	    $email = Input::get('email');
+	    $password = Input::get('password');
+	
+	    if (Auth::attempt(array('email' => $email, 'password' => $password)))
+	    {   
+	        return Redirect::to('/');	
+	    }else return View::make('session.create')->with('error','Failed to login. Please verify your credentials.');
+}	
 
 
 	/**
@@ -77,12 +80,12 @@ class SessionController extends \BaseController {
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy()
 	{
-		//
+	    Auth::logout();
+        return Redirect::route('home.index');
 	}
 
 

@@ -4,7 +4,8 @@
         "configs": {
             "json()": {},
             "@inited": "true"
-        }
+        },
+        "@runner": "Apache httpd (PHP, HTML)"
     },
     "share": {
         "@preview": false,

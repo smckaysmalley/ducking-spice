@@ -1,0 +1,56 @@
+body {
+    background-image: url('../img/bgd.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.panel {
+    border-radius: 10px;
+    -webkit-animation: boxShadow 10s infinite; 
+    -moz-webkit-animation: boxShadow 10s infinite; 
+    -ms-webkit-animation: boxShadow 10s infinite;
+    animation: boxShadow 10s infinite;
+
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes boxShadow {
+    0% {box-shadow: -5px -5px 5px #000000;}
+    25% {box-shadow: 5px -5px 15px #000000;}
+    50% {box-shadow: 5px 5px 25px #000000;}
+    75% {box-shadow: -5px 5px 15px #000000;}
+    100% {box-shadow: -5px -5px 5px #000000;}
+}
+
+/* Standard syntax */
+@keyframes boxShadow {
+    0% {box-shadow: -5px -5px 5px #000000;}
+    25% {box-shadow: 5px -5px 15px #000000;}
+    50% {box-shadow: 5px 5px 25px #000000;}
+    75% {box-shadow: -5px 5px 15px #000000;}
+    100% {box-shadow: -5px -5px 5px #000000;}
+}
+
+input {
+    opacity: 0.7;
+}
+
+hr {
+    opacity: 0.5;
+}
+
+.center{
+    text-align: center;
+    margin: auto;
+}
+
+.panel {
+    opacity: 0.9;
+}
+
+.navbar {
+    opacity: 0.9;
+}
+
+.navbar:hover {
+    opacity: 1;
+}
