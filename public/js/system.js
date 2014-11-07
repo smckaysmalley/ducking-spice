@@ -230,6 +230,8 @@ $(function() {
                     for(var key in info) {
                         if(info.hasOwnProperty(key)) {
                             html += '<tr>';
+                            
+                            // You can custom assign keys without assigning all of them to allow for more room for more options like update
                             for(var key2 in info[key]) {
                                if(info[key].hasOwnProperty(key2)) {
                                    html += '<td>' + info[key][key2] + '</td>'
