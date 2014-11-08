@@ -86,8 +86,17 @@ class AccountController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		try {
+			$account = array();//new Account::find(Input::get('accountId'));
+			$account->username = Input::get('username');
+			$account->password = Input::get('password');
+			//$account->save();
+			return [1,'Successfully updated information!'];
+		}catch(Exception $e) {
+			return [0,'ERROR: ' . $e->getMessage() . ' at line ' . $e->getLine()];
+		}
 	}
+	
 
 
 	/**

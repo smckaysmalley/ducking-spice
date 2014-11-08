@@ -195,6 +195,7 @@ $(function() {
             }
         })
         
+        // Clear the left panel
         listen('clear-fields', function() {
             input.site.val('');
             input.type.val('');
@@ -203,9 +204,16 @@ $(function() {
             input.passwordConfirm.val('');
         });
         
+        
+        // Fills in the Account Table with information from the database using the User's ID
         listen('populate-sites',function() {
+            // Hide the display while editing it
             ui.display.hide();
+            
+            // Telling the user what we're doing
             tell('alert.loading','Populating sites...');
+            
+            // Function that dictates what the server call does after it is finished retrieving the information
             function callback(res) {
                 // Success
                     if(!res[0]) tell('alert.error',res[1]);
@@ -250,7 +258,10 @@ $(function() {
                     
                     html += '</tbody></table>';
                     
+                    // Add all the information that was built above to the DOM
                     ui.display.html(html);
+                    
+                    // Binds all the new buttons that were created using their unique id
                     for(var key in info) {
                         if(info.hasOwnProperty(key)) {
                             $('#button-delete-'+info[key]['account_id']).bind('click',function(e) {
@@ -276,19 +287,24 @@ $(function() {
                                     }
                                 }
                                 var map = {
-                                    username: '',
-                                    password: ''
+                                    username: $('#input-account-username-'+info[key]['account_id']).val(),
+                                    password: $('#input-account-username-'+info[key]['account_id']).val(),
+                                    accountId: info[key]['account_id']
                                 };
                                 
+                                // Sends the new information to the server 
                                 tell('server.post',['/account/update',map,callback]);
                             });
                         }
                     }
+                    
+                    // Displays all the work that was done above and tells the user we're done!
                     ui.display.show();
                     tell('alert.success','Successfully built accounts list!');
                 }
             }
             
+            // Gathers all the user information from the database then calls callback
             tell('server.post', ['/account/show', {}, callback]);
             
         });
