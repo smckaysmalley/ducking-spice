@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="row">
+<div class="row status-indicator">
     <div class="col-sm-12">
         <button style="display:none" class="btn btn-md btn-block btn-danger" id="alert-error"></button>
         <button style="display:none" class="btn btn-md btn-info btn-block" id="alert-loading"></button>
@@ -19,10 +19,6 @@
       </div>
       <div class="panel-body">
          <div class="form-group">
-            <span style="color:red">@if(isset($error)){{ $error }}@endif</span>
-            <span style="color:green">@if(isset($msg)){{ $msg }}@endif</span>
-         </div>
-         <div class="form-group">
             <label for="type">Type of Account</label>
             <select id="type" name="type">
                <option></option>
@@ -33,7 +29,7 @@
              </select>
          </div>
          <div class="form-group">
-            <label for="site">Account Name</label>
+            <label for="site">Site</label>
             <input type="text" id="site" name="site" class="form-control" required />
          </div>
          <div class="form-group">
@@ -59,10 +55,13 @@
 <div class="col-lg-7 col-lg-offset-1">
    <div class="panel panel-default">
       <div class="panel-heading">
-         <h3 class="panel-title"></h3>
+         <h3 class="panel-title">Account Table</h3>
       </div>
+      
+      <!-- Div that displays all the account information -->
       <div class="panel-body" id="display-fields">
       </div>
+      
    </div>
 </div>
 

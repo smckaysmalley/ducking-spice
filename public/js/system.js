@@ -214,31 +214,37 @@ $(function() {
                 else {
                     tell('alert.loading',res[1]);
                     var info = res[2];
-                    var html = '<table class="table table-bordered"><legend>Account Table</legend><thead style="font-size:10px"><tr>' +
-                    '<th>Account ID</th>' +
-                    '<th>User ID</th>' +
-                    '<th>Type</th>' +
-                    '<th>Site</th>' +
-                    '<th>Username</th>' +
-                    '<th>Password</th>' +
-                    '<th>Created At</th>' +
-                    '<th>Updated At</th>' +
-                    '<th>Options</th>' +
+                    var html = '<table class="table table-bordered"><thead style="font-size:10px"><tr>' +
+                               
+                               // Table Field Headers
+                               '<th>Site</th>' +
+                               '<th>Username</th>' +
+                               '<th>Password</th>' + 
+                               '<th>Type</th>' +
+                               '<th>Updated At</th>' +
+                               '<th>Options</th>' +
+                               
                     '</tr></thead><tbody style="font-size:10px">';
                     
                     // Loop through and build the body of the table
                     for(var key in info) {
                         if(info.hasOwnProperty(key)) {
-                            html += '<tr>';
+                            html += '<tr>' +
                             
-                            // You can custom assign keys without assigning all of them to allow for more room for more options like update
-                            for(var key2 in info[key]) {
-                               if(info[key].hasOwnProperty(key2)) {
-                                   html += '<td>' + info[key][key2] + '</td>'
-                               }
-                            }
-                            html += '<td><a class="btn btn-sm btn-warning" data-id="'+info[key]['account_id']+'" id="button-delete-' + info[key]['account_id'] +
-                                    '">Delete</a></td></tr>'
+                                    // Fields
+                                    '<td>'+info[key]['site']+'</td>' +
+                                    '<td><input class="form-control" id="input-account-username-'+info[key]['account_id']+'" value="'+info[key]['username']+'"/></td>' +
+                                    '<td><input class="form-control" id="input-account-password-'+info[key]['account_id']+'" value="'+info[key]['password']+'"/></td>' +
+                                    '<td>'+info[key]['type'] +'</td>' +
+                                    '<td>'+info[key]['updated_at'] +'</td>' +
+                            
+                                    // Options
+                                    '<td>'+
+                                    
+                                    '<a class="btn btn-sm btn-warning" data-id="'+info[key]['account_id']+'" id="button-delete-' + info[key]['account_id'] +'">Delete</a>'+
+                                    '<a class="btn btn-sm btn-warning" data-id="'+info[key]['account_id']+'" id="button-update-' + info[key]['account_id'] +'">Update</a>'+
+                                    
+                                    '</td></tr>'
                         }
                     }
                     
@@ -258,6 +264,23 @@ $(function() {
                                     }
                                 }
                                 tell('server.post',['/account/delete',{account_id:id},callback]);
+                            });
+                            $('#button-update-'+info[key]['account_id']).bind('click',function(e) {
+                                e.preventDefault();
+                                var id = $(this).data('id');
+                                tell('alert.loading','Updating account ' + id);
+                                function callback(res) {
+                                    if(!res[0]) tell('alert.error',res[1]);
+                                    else {
+                                        tell('populate-sites');
+                                    }
+                                }
+                                var map = {
+                                    username: '',
+                                    password: ''
+                                };
+                                
+                                tell('server.post',['/account/update',map,callback]);
                             });
                         }
                     }

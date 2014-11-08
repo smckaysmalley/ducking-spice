@@ -10,6 +10,7 @@ Route::get('/retrievePassword','AccountController@retrieve');
 Route::get('/accounts','AccountController@index');
 Route::get('/accounts/create','AccountController@create');
 
+Route::post('/accounts/edit', 'AccountController@edit');
 Route::post('/account/show','AccountController@show');
 Route::post('/account/store', 'AccountController@store');
 Route::post('/account/delete','AccountController@destroy');
